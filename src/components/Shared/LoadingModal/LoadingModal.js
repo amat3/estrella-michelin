@@ -3,7 +3,7 @@ import { View, ActivityIndicator} from 'react-native';
 import { Overlay, Text } from '@rneui/themed';
 import { styles } from './LoadingModal.styles';
 
-const LoadingModal = (show = false, text) => {
+export function LoadingModal(show = false, text)  {
   return (
     <Overlay 
         isVisible={show} 
@@ -16,5 +16,3 @@ const LoadingModal = (show = false, text) => {
     </Overlay>
   );
 };
-
-export default LoadingModal;
