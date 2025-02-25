@@ -26,7 +26,7 @@ export function RegisterForm() {
             } catch (error) {
                 Toast.show({
                     type: 'error',
-                    text1: 'Error al crear tu cuenta, intentalo más tarde.',
+                    text1: 'Error al crear tu cuenta, intentalo más tarde',
                     position: 'bottom',
                 });
                 console.log(error);
@@ -47,9 +47,7 @@ export function RegisterForm() {
       <Input 
         placeholder="Correo electrónico" 
         containerStyle={styles.input} 
-        rightIcon={
-        <Icon type="material-community" name="email-outline" iconStyle={styles.icon} />
-        }
+        rightIcon={<Icon type="material-community" name="email-outline" iconStyle={styles.icon} /> }
         onChangeText={(text) => formik.setFieldValue('email', text)}
         errorMessage={formik.errors.email}
         />
@@ -90,7 +88,7 @@ export function RegisterForm() {
       <Button 
         title="Unirse" 
         containerStyle={styles.btnContainer} 
-        buttonStyle={styles.button} 
+        buttonStyle={styles.btn} 
         onPress={formik.handleSubmit} 
         loading={formik.isSubmitting}
         />

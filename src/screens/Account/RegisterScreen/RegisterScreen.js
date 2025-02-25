@@ -5,7 +5,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { RegisterForm } from '../../../components/Auth';
 import { styles } from './RegisterScreen.styles';
 
-const RegisterScreen = () => {
+export function RegisterScreen() {
   return (
     <KeyboardAwareScrollView>
     <Image source={require('../../../../assets/img/logo-estrella-michelin.webp')} style={styles.image} />
@@ -15,5 +15,3 @@ const RegisterScreen = () => {
     </KeyboardAwareScrollView>
   );
 };
-
-export default RegisterScreen;

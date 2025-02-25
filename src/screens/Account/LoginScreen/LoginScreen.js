@@ -2,10 +2,11 @@ import React from 'react';
 import { View, ScrollView } from 'react-native';
 import { Text, Image } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
+import  { LoginForm }  from '../../../components/Auth';
 import { screen } from '../../../utils';
 import { styles } from './LoginScreen.styles';
 
-const LoginScreen = () => {
+export function LoginScreen() {
   const navigation = useNavigation();
 
   const goToRegister = () => {
@@ -15,13 +16,16 @@ const LoginScreen = () => {
   return (
     <ScrollView>
       <Image source={require('../../../../assets/img/logo-estrella-michelin.webp')} style={styles.image} />
-      <View style={styles.container}>
-      <Text>Estamos en Login</Text>
-      </View>
 
-      <Text onPress={goToRegister}>Registrarse</Text>
+      <View style={styles.container}>
+        <LoginForm />
+
+      <Text style={styles.textRegister}>
+        ¿Aún no tienes cuenta?
+        <Text style={styles.btnRegister} onPress={goToRegister}> Registrarse</Text>
+        </Text>
+      </View>
     </ScrollView>
   );
 };
 
-export default LoginScreen;

@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { Button } from 'react-native-web';
 
 export const styles = StyleSheet.create({
     container: {
@@ -14,13 +13,12 @@ export const styles = StyleSheet.create({
     },
     icon: {
         color: '#c1c1c1',
-        fontSize: 20,
     },
     btnContainer: {
         marginTop: 20,
         width: '95%',
     },
-    button: {
+    btn: {
         backgroundColor: '#00a680',
        
     }

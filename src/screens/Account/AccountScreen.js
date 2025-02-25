@@ -1,10 +1,10 @@
 import React, { useEffect, useState} from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import  { UserGuestScreen }  from './UserGuestScreen';
-import  UserLoggedScreen  from './UserLoggedScreen';
+import  { UserGuestScreen } from './UserGuestScreen';
+import  { UserLoggedScreen } from './UserLoggedScreen';
 import  { LoadingModal }  from '../../components';
 
-const AccountScreen = () => {
+export function AccountScreen() {
   const [hasLogged, setHasLogged] = useState(null);
 
   useEffect(() => {
@@ -20,5 +20,3 @@ const AccountScreen = () => {
 
   return hasLogged ? <UserLoggedScreen /> : <UserGuestScreen />;
 };
-
-export default AccountScreen;

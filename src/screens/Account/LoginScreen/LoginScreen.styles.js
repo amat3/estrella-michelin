@@ -8,9 +8,15 @@ export const styles = StyleSheet.create({
         marginTop: 20,
     },
     container: {
-        marginHorizontal: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
+        marginHorizontal: 40,
     },
- 
+    textRegister: {
+        marginTop: 15,
+        marginHorizontal: 10,
+        textAlign: 'center',
+    },
+    btnRegister: {
+        color: '#00a680',
+        fontWeight: 'bold',
+    }
 });
