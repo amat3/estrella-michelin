@@ -1,34 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
-import { ListItem, Icon } from '@rneui/themed';
-import { map } from "lodash"
+import { ListItem, Icon, Text } from '@rneui/themed';
+import { Modal } from '../../components/Shared';
 
 export function AccountOptions() {
-    const menuOptions = getMenuOptions()
+  const [showModal, setShowModal] = useState(false);
+  const [renderComponent, setRenderComponent] = useState(null);
+
+  const onCloseOpenModal = () => setShowModal(!showModal);
+
+  const selectedComponent = (key) => {
+    if (key === "displayName") {
+      setRenderComponent(<Text>Cambiar nombre y apellidos</Text>)
+    } else if (key === "email") {
+      setRenderComponent(<Text>Cambiar email</Text>)
+    } else if (key === "password") {
+      setRenderComponent(<Text>Cambiar contraseña</Text>)
+    }
+
+    onCloseOpenModal()
+  }
+  
+  const menuOptions = getMenuOptions(selectedComponent)
 
   return (
     <View>
-      {map(menuOptions, (menu, index) => {
-        <ListItem key={index}>
+      {menuOptions.map((menu, index) => (
+        <ListItem key={index} bottomDivider onPress={menu.onPress}>
+            <Icon type={menu.iconType} name={menu.iconNameLeft} color={menu.iconColorLeft} />
             <ListItem.Content>
                 <ListItem.Title>{menu.title}</ListItem.Title>
             </ListItem.Content>
+            <Icon type={menu.iconType} name={menu.iconNameRight} color={menu.iconColorRight} />
         </ListItem>
-      })}
+      ))} 
+
+      <Modal show={showModal} close={() => onCloseOpenModal()}>
+        {renderComponent}
+      </Modal>
     </View>
   );
 };
 
-function getMenuOptions() {
+function getMenuOptions(selectedComponent) {
     return [
         {
-            title: "Cambiar Nombre y Apellidos"
+            title: "Cambiar Nombre y Apellidos",
+            iconType: "material-community",
+            iconNameLeft: "account-circle",
+            iconColorLeft: "#ccc",
+            iconNameRight: "chevron-right",
+            iconColorRight: "#ccc",
+            onPress: () => selectedComponent("displayName")
         },
         {
-            title: "Cambiar Email"
+            title: "Cambiar Email",
+            iconType: "material-community",
+            iconNameLeft: "at",
+            iconColorLeft: "#ccc",
+            iconNameRight: "chevron-right",
+            iconColorRight: "#ccc",
+            onPress: () => selectedComponent("email")
         },
         {
-            title: 'Cambiar contraseña'
+            title: 'Cambiar contraseña',
+            iconType: "material-community",
+            iconNameLeft: "lock-reset",
+            iconColorLeft: "#ccc",
+            iconNameRight: "chevron-right",
+            iconColorRight: "#ccc",
+            onPress: () => selectedComponent("password")
         }
     ]
 }
