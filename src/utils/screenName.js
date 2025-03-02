@@ -1,7 +1,9 @@
 const restaurantStack ={
     tab: 'RestaurantsTab',
     restaurants: "Restaurants",
-    AddRestaurant: "AddRestaurant"
+    AddRestaurant: "AddRestaurant",
+    restaurant: "Restaurant",
+    addReviewRestaurant: "AddReviewRestaurant",
 }
 
 const rankingStack = {
@@ -27,7 +29,7 @@ const accountStack = {
 }
 
 export const screen = {
-    restaurants: restaurantStack,
+    restaurant: restaurantStack,
     ranking: rankingStack,
     favorites: favoritesStack,
     search: searchStack,

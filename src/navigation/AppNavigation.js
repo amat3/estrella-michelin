@@ -17,7 +17,7 @@ export function AppNavigation() {
         tabBarInactiveTintColor: '#646464',
         tabBarIcon: ({ color, size }) => screenOptions(route, color, size)
     })}>
-      <Tab.Screen name={screen.restaurants.tab} component={RestaurantStack} options={{ title: 'Restaurantes' }} />
+      <Tab.Screen name={screen.restaurant.tab} component={RestaurantStack} options={{ title: 'Restaurantes' }} />
       <Tab.Screen name={screen.ranking.tab} component={RankingStack} options={{ title: 'Ranking' }} />
       <Tab.Screen name={screen.favorites.tab} component={FavoritesStack} options={{ title: 'Favoritos' }} />
       <Tab.Screen name={screen.search.tab} component={SearchStack} options={{ title: 'Buscar' }} />
@@ -29,7 +29,7 @@ export function AppNavigation() {
 function screenOptions(route, color, size) {
     let iconName;
 
-    if (route.name === screen.restaurants.tab) {
+    if (route.name === screen.restaurant.tab) {
         iconName = 'pot-steam-outline';
     }
 
