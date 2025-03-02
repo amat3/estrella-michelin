@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { ListItem, Icon, Text } from '@rneui/themed';
-import { Modal } from '../../components/Shared';
+import { Modal } from '../../components';
+import { ChangeDisplayNameForm } from './ChangeDisplayNameForm';
+import { ChangeEmailForm } from './ChangeEmailForm';
+import { ChangePasswordForm } from './ChangePasswordForm';
 
-export function AccountOptions() {
+export function AccountOptions(props) {
+  const { onReload } = props;
   const [showModal, setShowModal] = useState(false);
   const [renderComponent, setRenderComponent] = useState(null);
 
@@ -11,11 +15,11 @@ export function AccountOptions() {
 
   const selectedComponent = (key) => {
     if (key === "displayName") {
-      setRenderComponent(<Text>Cambiar nombre y apellidos</Text>)
+      setRenderComponent(<ChangeDisplayNameForm onClose={onCloseOpenModal} onReload={onReload} />)
     } else if (key === "email") {
-      setRenderComponent(<Text>Cambiar email</Text>)
+      setRenderComponent(<ChangeEmailForm onClose={onCloseOpenModal} onReload={onReload} />)
     } else if (key === "password") {
-      setRenderComponent(<Text>Cambiar contraseña</Text>)
+      setRenderComponent(<ChangePasswordForm onClose={onCloseOpenModal} />)
     }
 
     onCloseOpenModal()

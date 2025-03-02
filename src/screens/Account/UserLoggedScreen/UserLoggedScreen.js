@@ -9,6 +9,11 @@ import { styles } from './UserLoggedScreen.styles';
 export function UserLoggedScreen() {
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState('');
+  const [reload, setReload] = useState(false);
+
+  const onReload = () => {
+    setReload(!reload);
+  }
 
   const logout = async () => {
     const auth = getAuth();
@@ -19,7 +24,7 @@ export function UserLoggedScreen() {
     <View style={styles.container}>
       <InfoUser setLoading={setLoading} setLoadingText={setLoadingText} />
 
-      <AccountOptions />
+      <AccountOptions onReload={onReload} />
 
       <Button title="Cerrar sesión" onPress={logout} buttonStyle={styles.btnStyles} titleStyle={styles.btnTextStyles} />
     
