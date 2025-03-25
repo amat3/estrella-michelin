@@ -23,7 +23,10 @@ export function InfoForm(props) {
     <Input
         placeholder="Dirección"
         rightIcon={{
-            type: 'material-community', name: 'map-marker-radius', color: getColorIconMap(formik), onPress: openCloseMap
+            type: 'material-community', 
+            name: 'map-marker-radius', 
+            color: getColorIconMap(formik), 
+            onPress: openCloseMap
             }}
         onChangeText={(text) => formik.setFieldValue('address', text)}
         errorMessage={formik.errors.address}
