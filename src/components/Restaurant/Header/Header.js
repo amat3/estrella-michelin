@@ -11,7 +11,11 @@ export function Header(props) {
         <View style={styles.container}>
         <View style={styles.titleView}>
             <Text style={styles.name}>{restaurant.name}</Text>
-            <Rating imageSize={20} startingValue={restaurant.ratingMedia | 0} readonly />
+            <Rating 
+                imageSize={20} 
+                readonly
+                startingValue={restaurant.ratingMedia | 0} 
+                />
         </View>
             <Text style={styles.description}>{restaurant.description}</Text>
         </View>
