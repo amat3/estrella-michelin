@@ -1,20 +1,23 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Text, Rating } from '@rneui/base';
+import { Rating } from 'react-native-ratings';
+import { Text } from '@rneui/themed';
 import { styles } from './Header.styles';
 
 export function Header(props) {
     const { restaurant } = props;
-    console.log(restaurant.ratingMedia)
+    const ratingValue = restaurant.ratingMedia ?? 0;
 
     return (
         <View style={styles.container}>
         <View style={styles.titleView}>
             <Text style={styles.name}>{restaurant.name}</Text>
-            <Rating 
-                imageSize={20} 
-                readonly
-                startingValue={restaurant.ratingMedia | 0} 
+            <Rating
+                    type='star'
+                    ratingCount={5}
+                    imageSize={20}
+                    readonly
+                    startingValue={ratingValue}
                 />
         </View>
             <Text style={styles.description}>{restaurant.description}</Text>

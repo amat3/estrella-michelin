@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { Text, Image, Rating, Icon } from '@rneui/themed';
+import { Rating } from 'react-native-ratings';
+import { Text, Image, Icon } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
 import { screen } from '../../../utils';
 import { styles } from './RestaurantRanking.styles';
